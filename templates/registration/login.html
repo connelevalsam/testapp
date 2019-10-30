@@ -1,0 +1,65 @@
+{% extends 'manageportal/auth_base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block container %}
+<div class="container-fluid">
+      <div class="row py-2">
+        <div class="col-12 col-sm-6 col-lg-4 m-auto">
+            {% if form.errors %}
+                <p class="text-white">Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p class="text-white">Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                {% else %}
+                    <p class="text-white">Please login to see this page.</p>
+                {% endif %}
+            {% endif %}
+          <div class="tm-box rounded">
+            <h4 class="tm-box-header text-center text-capitalize text-gray border-bottom mb-4 pb-3 tm-black-50">
+              Sign in
+            </h4>
+            <!-- <img src="dist/img/bg_3.jpg" alt="user" class="card-img-top img-fluid rounded-circle tm-user-img-sm m-auto"> -->
+            <div class="tm-box-body">
+              <div class="mb-3 text-center">
+                <img src="/static/img/user_1.png" alt="user" class="img-fluid rounded tm-user-img-xm">
+              </div>
+              <form method="post" action="{% url 'login' %}" class="form-horizontal mt-5">
+                {% csrf_token %}
+                <div class="form-group">
+                  <div class="input-group clearfix">
+                    {{ form.username.label_tag }}
+                    <td>{{ form.username }}</td>
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="icon ion-ios-at"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group clearfix">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="icon ion-ios-key"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group text-center mt-2">
+                  <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+              </form>
+              <p class="text-center">Forgot password? <a href="{% url 'password_reset' %}" class="link">Change password</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

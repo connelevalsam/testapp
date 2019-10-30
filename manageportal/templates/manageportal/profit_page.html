@@ -1,0 +1,92 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Profit Page{% endblock %}
+
+{% block container %}
+
+    <div class="row">
+        <div class="page-title mr-auto px-3 pt-2">
+            <h4 class="h3">Profit</h4>
+        </div>
+        <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+                <li class="breadcrumb-item" aria-current="page"><a href="{% url 'profits' %}">Profit</a></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+        <div class="col-12">
+            <div class="card-deck mt-4 mb-3">
+                <div class="card tm-shadow-out">
+                    <div class="p-0 clearfix">
+                        <div class="bg-primary py-1 py-sm-4 px-2 col-12 col-lg-4 float-left text-center">
+                            <i class="icon ion-ios-help-buoy tm-f3 text-white"></i>
+                        </div>
+                        <div class="col-12 col-lg-8 px-3 py-3 float-left">
+                            <h6 class="mb-2">Total Sales</h6>
+                            <h5 class="m-0">{{ totalSales }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tm-shadow-out">
+                    <div class="p-0 clearfix">
+                        <div class="bg-danger py-1 py-sm-4 px-2 col-12 col-lg-4 float-left text-center">
+                            <i class="icon ion-ios-help-buoy tm-f3 text-white"></i>
+                        </div>
+                        <div class="col-12 col-lg-8 px-3 py-3 float-left">
+                            <h6 class="mb-2">Total Income</h6>
+                            <h5 class="m-0">{{ totalIncome }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card tm-shadow-btm">
+                <div class="card-body p-0">
+                    <div class="table-responsive flex-fill">
+                        <table class="table table-hover m-0">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Item cost</th>
+                                <th scope="col">Amount paid</th>
+                                <th scope="col">Profit</th>
+                                <th scope="col">Action</th>
+
+                            </tr>
+                            </thead>
+                            {% if tnx %}
+                                {% for tnx_list in tnx %}
+                                    <tbody>
+
+                                    <tr>
+                                        <th scope="row">{{ tnx_list.message_id }}</th>
+                                        <td>{{ tnx_list.message.fullname }}</td>
+                                        <td>{{ tnx_list.cost }}</td>
+                                        <td>{{ tnx_list.money_paid }}</td>
+                                        <td>{{ tnx_list.money_made }}</td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="Action">
+                                                <a href="{% url 'transaction-detail' tnx_list.pk %}" class="btn btn-success">
+                                                    <i class="icon ion-ios-done-all"></i>
+                                                    View all
+                                                </a>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                {% endfor %}
+                            {% else %}
+                                <h4 class="h3">No Transaction</h4>
+                            {% endif %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load static %}
+    <!--favicon icon-->
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png" sizes="16x16">
+
+    <!-- font-awesome css -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <!--themify icon-->
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+
+    <!--flaticon icon-->
+    <link rel="stylesheet" href="{% static 'fonts/flaticon.css' %}">
+
+    <!-- magnific popup css-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <!--owl carousel -->
+    <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- bootstrap core css -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- custom css -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- responsive css -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    
+    <style>
+        .enquirySubmit {
+            display: none;
+        }
+        .terms {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        .terms input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .terms:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .terms input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .terms input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .terms .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <script src="{% static 'js/vendor/modernizr-2.8.1.min.js' %}"></script>
+    <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shim.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+    <!--end preloader-->
+    <div id="main" class="main-content-wraper">
+        <div class="main-content-inner">
+        
+            <!--start header section-->
+            <header class="header" id="hero">
+                <!--start navbar-->
+                <div class="navbar navbar-default navbar-fixed-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="navbar-header page-scroll">
+                               
+                                <a class="navbar-brand page-scroll" href="{% url 'home' %}">
+                                    <img src="{% static 'img/logo.png' %}" alt="logo" class="img-responsive">
+                                </a>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="navbar-new " id="myNavbar">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <a class="active" href="{% url 'home' %}">HOME</a>
+                                    <a class="page-scroll" href="#why-us">WHY CHOOSE US</a>
+                                    <a class="page-scroll" href="#features">HOW IT WORKS</a>
+                                    <a class="page-scroll" href="#faqs">FAQ</a>
+                                    <a href="{% url 'reach_us' %}">CONTACT</a>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--end navbar-->
+            </header>
+            <!--end header section-->
+
+
+        {% block container %} {% endblock %}
+
+        {% block contactblock %} {% endblock %}
+
+        {% block footer %}
+            <!--start footer section-->
+            <footer class="footer-section bg-secondary ptb-40" id="socio">
+                <div class="footer-wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="footer-single-col text-center">
+                                    <div class="footer-social-list">
+                                        <ul class="list-inline">
+                                            <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
+                                            <li><a href="#"> <i class="fa fa-youtube"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="copyright-text">
+                                        <p>&copy; copyright <a href="#">Smartalaba</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--end footer section-->
+        {% endblock %}
+
+        </div><!--end main content inner-->
+
+    </div>
+    <!--end main container -->
+
+    {% include 'nav.html' %}
+    <!--=========== all js file link ==============-->
+
+    <!-- main jQuery -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+    <!-- bootstrap core js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- smothscroll -->
+    <script src="{% static 'js/jquery.easeScroll.min.js' %}"></script>
+
+    <!--owl carousel-->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+    <!-- scrolling nav -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+
+    <!--magnific popup js-->
+    <script src="{% static 'js/magnific-popup.min.js' %}"></script>
+
+    <!-- custom script -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'js/image_upload.js' %}"></script>
+</body>
+</html>

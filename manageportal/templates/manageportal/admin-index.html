@@ -1,0 +1,119 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Home{% endblock %}
+
+<!-- Main Container-->
+{% block container %}
+
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Dashboard: </h4>
+        <h4 class="h5">You have Received: </h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="{% url 'adminhome' %}">Dashboard</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="card-deck mt-4 mb-3">
+    <div class="card tm-shadow-out">
+        <div class="p-0 clearfix">
+            <div class="bg-primary py-1 py-sm-4 px-2 col-12 col-lg-4 float-left text-center">
+                <i class="icon ion-ios-done-all tm-f3 text-white"></i>
+            </div>
+            <div class="col-12 col-lg-8 px-3 py-3 float-left">
+                <h6 class="mb-2">Total Request</h6>
+                <h5 class="m-0">{{ req }}</h5>
+                <a href="{% url 'messages' %}" class="btn btn-primary">View all</a>
+            </div>
+        </div>
+    </div>
+    <div class="card tm-shadow-out">
+        <div class="p-0 clearfix">
+            <div class="bg-info py-1 py-sm-4 px-2 col-12 col-lg-4 float-left text-center">
+                <i class="icon ion-ios-bookmarks tm-f3 text-white"></i>
+            </div>
+            <div class="col-12 col-lg-8 px-3 py-3 float-left">
+                <h6 class="mb-2">Waiting List</h6>
+                <h5 class="m-0">{{ wtn }}</h5>
+                <a href="{% url 'waiting-list' %}" class="btn btn-primary">View all</a>
+            </div>
+        </div>
+    </div>
+    <div class="card tm-shadow-out">
+        <div class="p-0 clearfix">
+            <div class="bg-danger py-1 py-sm-4 px-2 col-12 col-lg-4 float-left text-center">
+                <i class="icon ion-ios-close tm-f3 text-white"></i>
+            </div>
+            <div class="col-12 col-lg-8 px-3 py-3 float-left">
+                <h6 class="mb-2">Rejected List</h6>
+                <h5 class="m-0">{{ rej }}</h5>
+                <a href="{% url 'rejected-list' %}" class="btn btn-primary">View all</a>
+            </div>
+        </div>
+    </div>
+    <div class="card tm-shadow-out">
+        <div class="p-0 clearfix">
+            <div class="bg-success py-1 py-sm-4 px-2 col-12 col-lg-4 float-left text-center">
+                <i class="icon ion-ios-checkmark tm-f3 text-white"></i>
+            </div>
+            <div class="col-12 col-lg-8 px-3 py-3 float-left">
+                <h6 class="mb-2">Accepted List</h6>
+                <h5 class="m-0">{{ acp }}</h5>
+                <a href="{% url 'accepted-list' %}" class="btn btn-primary">View all</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12">
+        <div class="card tm-shadow-btm">
+            <div class="card-header clearfix">
+                <span class="col-12 col-lg-4 float-left">Search Orders</span>
+                <form method="GET" action="{% url 'search' %}">
+                    <div class="my-3 my-lg-0 clearfix col-12 col-lg-3 float-left">
+                        <div class="input-group mb-0 px-0 px-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="icon ion-ios-search"></i>
+                                </div>
+                            </div>
+                            <label for="search-patients-by" class="sr-only">search order by</label>
+                            <select class="custom-select col-12" name="search-option" id="search-patients-by">
+                                <option selected>Search by:</option>
+                                <option value="uuid">UUID</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clearfix col-12 col-lg-5 float-left">
+                        <div class="input-group mb-0 px-0 px-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="icon ion-ios-search"></i>
+                                </div>
+                            </div>
+                            <label for="search-patients" class="sr-only">Search</label>
+                            <input type="search" name="search-bar" id="search-patients" class="form-control" placeholder="Search query..."
+                            aria-describedby="search-patient" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+                <div class=" mt-sm-4 mt-md-0 ml-md-4 w-md-25 tm-shadow-out">
+                    <a href="#" class="btn btn-primary clearfix">
+                        <span class="float-left">
+                            <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-checkmark-circle"></i></span>
+                            <span class="align-text-bottom">Send Receipt</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

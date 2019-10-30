@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/admin/bootstrap.min.css' %}" />
+    <link href="{% static 'fonts/admin/ionicons/css/ionicons.min.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/admin/main.min.css' %}" />
+</head>
+
+
+<body>
+<div class="wrapper">
+    <!-- HEADER -->
+    <header class="tm-header tm-shadow-btm">
+        <nav class="navbar justify-content-between justify-content-sm-start">
+            <div class="d-none d-sm-block d-md-none tm-semi-close-nav" id="tm-semi-close-nav">
+                <i class="icon ion-ios-arrow-round-back tm-f4 text-white"></i>
+            </div>
+            <a class="navbar-brand" href="{% url 'adminhome' %}">Smartalaba</a>
+            <button type="button" class="btn btn-primary navbar-toggler border-0 d-sm-none ml-4" data-toggle="collapse"
+                    data-target="#sidebarNav" aria-expanded="false" aria-controls="sidebarNav" aria-label="Toggle sidebar nav">
+                <i class="icon ion-ios-menu tm-f4"></i>
+            </button>
+        </nav>
+    </header>
+    <div class="container-fluid tm-main-con">
+        <div class="flex-sm-nowrap">
+
+            <!-- SIDEBAR -->
+            {% block sidebar %}
+                <aside class="px-1 tm-sidebar border-sm-right text-truncate">
+                    <div class="py-2 pt-sm-4 d-none d-sm-flex flex-nowrap justify-content-end justify-content-sm-start align-items-center">
+                        <div class="tm-title text-uppercase px-2">Menu</div>
+                    </div>
+                    <nav class="collapse d-sm-block tm-nav-links py-2 px-0" id="sidebarNav">
+                        <ul class="nav flex-column">
+                            {% with url_name=request.resolver_match.url_name %}
+                                <li class="nav-item ">
+                                    <a href="{% url 'adminhome' %}" class="nav-link clearfix">
+                                      <span class="float-left">
+                                        <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-home"></i></span>
+                                        <span class="align-text-bottom">Dashboard</span>
+                                      </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'profits' %}" class="nav-link {% if url_name == 'profits' %}tm-sidebar-active{% endif %}">
+                                        <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-wallet"></i></span>
+                                        <span class="align-text-bottom">Profits</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'waiting-list' %}" class="nav-link {% if url_name == 'waiting-list' %}tm-sidebar-active{% endif %}">
+                                        <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-people"></i></span>
+                                        <span class="align-text-bottom">View Waiting</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'rejected-list' %}" class="nav-link {% if url_name == 'rejected-list' %}tm-sidebar-active{% endif %}">
+                                          <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-close-circle"></i></span>
+                                          <span class="align-text-bottom">View Rejected</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'accepted-list' %}" class="nav-link {% if url_name == 'accepted-list' %}tm-sidebar-active{% endif %}">
+                                          <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-checkmark-circle"></i></span>
+                                          <span class="align-text-bottom">View Accepted</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'spam-list' %}" class="nav-link {% if url_name == 'spam-list' %}tm-sidebar-active{% endif %}">
+                                          <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-remove-circle"></i></span>
+                                          <span class="align-text-bottom">View Spams</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'invoice-upload' %}" class="nav-link {% if url_name == 'invoice-upload' %}tm-sidebar-active{% endif %}">
+                                          <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-cloud-upload"></i></span>
+                                          <span class="align-text-bottom">Upload Invoice</span>
+                                    </a>
+                                </li>
+                            {% endwith %}
+                            <li class="nav-item">
+                                <a href="{% url 'logout' %}?next={{ request.path }}" class="nav-link ">
+                                      <span class="badge mr-2 tm-sidebar-icon"><i class="icon ion-ios-log-out"></i></span>
+                                      <span class="align-text-bottom">Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+            {% endblock %}
+
+            <!-- MAIN CONTENT -->
+            <main class="px-3 tm-content">
+                {% block container %}
+
+                {% endblock %}
+                
+                <!-- Pagination -->
+                {% block pagination %}
+
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="tm-footer tm-shadow bg-white text-center clearfix">
+        <div class="offset-sm-4 offset-md-3 offset-xl-2">
+            &copy; Copyright smartalaba 2019
+        </div>
+    </div>
+
+</div>
+<script src="{% static 'js/admin/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/admin/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/admin/main.js' %}"></script>
+<script src="{% static 'js/admin/addItems.js' %}"></script>
+<script src="{% static 'js/image_upload.js' %}"></script>
+</body>
+
+</html>

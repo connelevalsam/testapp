@@ -1,0 +1,484 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Smart Alaba - The Future Of E-Commerce{% endblock %}
+
+{% block container %}
+    <!--start hero section-->
+    <section id="hero" class="section-lg section-hero section-circle" style="background: url('{% static 'img/hero-bg-1.jfif' %}')no-repeat center center / cover">
+        <!--background circle shape-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="hero-content-wrap">
+                        <div class="hero-content">
+                            <h1>Order <span style="font-size: 55px; font-style: italic; color: #fff;">ITEMS</span> from <span>Europe</span> and <span>America</span></h1>
+                            <p>SmartAlaba is dedicated to buying genuine parts of all car makes and models directly from wholesalers on behalf of our customers. We also source machinery, general plant spares, equipment and consumer/household goods.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="hero-product-img">
+                        <div class="hero-img-1  ">
+                            <img src="{% static 'img/first_img.png' %}" alt="hero-img" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-shape">
+            <img src="{% static 'img/waves-shape.svg' %}" alt="shape image">
+        </div>
+    </section>
+    <!--end hero section-->
+
+    <!--start promo section-->
+    <section class="promo-section ptb-90" id="why-us">
+        <div class="promo-section-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="feature-heading">
+                        <h3>Why Choose Us?</h3>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="bg-secondary single-promo-section text-center">
+                            <div class="single-promo-content">
+                                <span class="ti-thumb-up"></span>
+                                <h6>High quality products</h6>
+                                <p>The highest quality guaranteed with every order.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="bg-secondary single-promo-section text-center">
+                            <div class="single-promo-content">
+                                <span class="ti-money"></span>
+                                <h6>Competitive Prices </h6>
+                                <p>Competitive prices without compromise to quality and guaranteed to beat retail prices in Nigeria.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="bg-secondary single-promo-section text-center">
+                            <div class="single-promo-content">
+                                <span class="ti-face-smile"></span>
+                                <h6>Convenience </h6>
+                                <p>Delivery to chosen destination or nearest pickup point.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end promo section-->
+
+    <!--new feature start-->
+    <section id="features" class="new-features ptb-90">
+        <div class="new-features-one">
+            <div class="container">
+                <div class="row">
+                    <div class="feature-heading">
+                        <h3>How It Works</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-image">
+                            <img src="{% static 'img/img01.jpg' %}" alt="feature" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!--feature single start-->
+                        <div class="single-feature mb-3" style="padding-top: 0">
+                            <div class="feature-icon">
+                                <div class="icon icon-shape">
+                                    <span class="ti-check-box"></span>
+                                </div>
+                            </div>
+                            <div class="feature-content" style="padding-top: 2px;">
+                                <p class="mb-0">
+                                    Fill enquiry form & provide:
+                                </p>
+                                <ul style="padding-left: 30px; list-style-type: circle;">
+                                    <li>VIN or chassis number for car parts.</li>
+                                    <li>Make and model for specialist equipment/machinery. </li>
+                                    <li>Brand and picture showing product name for other goods. </li>
+                                    <li>Make payment for order enquiry.</li>
+                                    <li>Pay non-refundable enquiry fee of ₦2000 (deducted from final cost if order placed).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--feature single end-->
+                        <!--feature single start-->
+                        <div class="single-feature mtb-3">
+                            <div class="feature-icon">
+                                <div class="icon icon-shape">
+                                    <span class="ti-check-box"></span>
+                                </div>
+                            </div>
+                            <div class="feature-content" style="padding-top: 2px;">
+                                <p class="mb-0">
+                                    Quote and payment instructions provided within 24hrs after order enquiry
+                                </p>
+                                <ul style="padding-left: 30px; list-style-type: circle;">
+                                    <li>Order enquiry fee deducted from final quote.</li>
+                                    <li>Quotes are valid for up to 30 days only. </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--feature single end-->
+                        <!--feature single start-->
+                        <div class="single-feature mtb-3">
+                            <div class="feature-icon">
+                                <div class="icon icon-shape">
+                                    <span class="ti-check-box"></span>
+                                </div>
+                            </div>
+                            <div class="feature-content" style="padding-top: 2px;">
+                                <p class="mb-0">
+                                   Order processed as soon as payment is received. 
+                                </p>
+                            </div>
+                        </div>
+                        <!--feature single end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--new feature end-->
+
+
+    <!--testimonial section start-->
+    <section class="testimonial-section pt-70" style="background: url('{% static 'img/img02.jpg' %}')no-repeat center center / cover; height: 40vh;">
+        <div class="testimonial-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="slider-action-btn">
+                            <a href="#contact" class="page-scroll btn softo-solid-btn">Order Enquiry</a>
+                        </div>
+                        <!--<div class="section-heading white-text">
+                            <h3 class="white-text">10k+ Customers Trust Us</h3>
+                            <p>We have thousands of users who have used and beleived in our services.
+                                Our priority is puting smiles on the faces of our customers.
+                                Your satisfaction is our priority.</p>
+                        </div>
+                        <div class="owl-carousel owl-theme testimonial-slider">
+                            <div class="item">
+                                <div class="single-testimonial-item">
+                                    <span class="blockquote-icon"><i class="fa fa-quote-left"></i></span>
+                                    <div class="testimonial-content">
+                                        <p>My experience with smart alaba was awesome. They delivered the product 
+                                            faster than i expected. And the product they delivered is worth
+                                            more than the cheap price i got it for. Thank you Smart Alaba.</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <img src="{% static 'img/testimonial-4.png' %}" alt="">
+                                        <div class="testimonial-author-info">
+                                            <h6>Jendy Jasper</h6>
+                                            <span>Security Engineer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="single-testimonial-item">
+                                    <span class="blockquote-icon"><i class="fa fa-quote-left"></i></span>
+                                    <div class="testimonial-content">
+                                        <p>My experience with smart alaba was awesome. They delivered the product 
+                                                faster than i expected. And the product they delivered is worth
+                                                more than the cheap price i got it for. Thank you Smart Alaba.</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <img src="{% static 'img/testimonial-4.png' %}" alt="">
+                                        <div class="testimonial-author-info">
+                                                <h6>Jendy Jasper</h6>
+                                                <span>Security Engineer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="single-testimonial-item">
+                                    <span class="blockquote-icon"><i class="fa fa-quote-left"></i></span>
+                                    <div class="testimonial-content">
+                                        <p>My experience with smart alaba was awesome. They delivered the product 
+                                                faster than I expected. And the product they delivered is worth
+                                                more than the cheap price I got it for. Thank you Smart Alaba.</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <img src="{% static 'img/testimonial-4.png' %}" alt="">
+                                        <div class="testimonial-author-info">
+                                                <h6>Jendy Jasper</h6>
+                                                <span>Security Engineer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--testimonial section end-->
+
+    <!--start pricing-->
+    
+    <!--end pricing-->
+
+    <!--start faq section-->
+    <section id="faqs" class="faq-section bg-secondary ptb-90">
+        <div class="faq-section-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="section-heading">
+                            <h3>FAQ</h3>
+                            <p>Get answers to frequently asked questions!.</p>
+                        </div>
+                        <div class="panel-group" id="accordion">
+                            <!-- Start Single Item -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                            <span>1.</span> How do I pay for my order?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>Payments are received in Naira via direct online bank transfers or card payments.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                            <!-- Start Single Item -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                            <span>2.</span> Can I track my order?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                       <p>Yes. A confirmation email and tracking ID will be generated for each successfully processed order. These can be used for order tracking. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                            <!-- Start Single Item -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="headingFour">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                            <span>3.</span> When will I receive my order?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>We aim to deliver all orders between 10 to 14 days except for specialized equipment or products.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                            <!-- Start Single Item -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="headingFive">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                            <span>4.</span> What if I don’t receive my order within 14 days?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>Estimated delivery date provided with all quotes. Prompt notification provided for any unforeseen delay to orders.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                            <!-- Start Single Item -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="headingSix">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                                            <span>5.</span> What is your return policy?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseSix" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>All items except household goods can be returned within 7 days of receipt in their original packaging at a cost to the buyer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="faq-img">
+                            <div class="col-md-6 col-lg-12 col-xl-12">
+                                <img src="{% static 'img/machinery.png' %}" alt="feature" class="img-responsive">
+                            </div>
+                            <div class="col-md-6 col-lg-12 col-xl-12">
+                                <img src="{% static 'img/machinery01.jpeg' %}" alt="feature" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end faq section-->
+{% endblock %}
+
+
+{% block contactblock %}
+
+<!--contact us section start-->
+        <section id="contact" class="contact-us ptb-90">
+            <div class="contact-us-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <!--<div class="section-heading">
+                                <h3>Contact us</h3>
+                                <p>It's very easy to get in touch with us. Just use the contact form or pay us a
+                                    visit for a coffee at the office.</p>
+                            </div>-->
+                            <div class="footer-address">
+                                <h6>Find us</h6>
+                                <p>30 Wetheral Road, Owerri Imo State</p>
+                                <h6>General enquiries</h6>
+                                <ul>
+                                    <li><i class="fa fa-phone"></i> <span>Phone: +234 808 568 0969</span></li>
+                                    <li><i class="fa fa-envelope-o"></i> <span>Email : <a href="mailto: info@smartalaba.com"> info@smartalaba.com</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            {% if message %}
+                                <div style="text-align: center; border: 2px groove lightgray; border-radius: 5px;">
+                                    <div style=" {{ css }} ">
+                                        <span style="font-weight: bold;">{{ message|linebreaks }}</span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <form action="#contact" method="post" class="contact-us-form" novalidate="novalidate" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <h6>Order Form</h6>
+                                {{ form.non_field_errors }}
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group col-sm-10 col-xs-10">
+                                            {{ form.fullname }}
+                                        </div><span style="color: red">*</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group col-sm-10 col-xs-10">
+                                            {{ form.email }}
+                                        </div><span style="color: red">*</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group col-sm-10 col-xs-10">
+                                            {{ form.phone_number }}
+                                        </div><span style="color: red">*</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group col-sm-10 col-xs-10">
+                                            {{ form.address }}
+                                        </div><span style="color: red">*</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group col-sm-10 col-xs-10">
+                                            {{ form.product_name }}
+                                        </div><span style="color: red">*</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group col-sm-10 col-xs-10">
+                                            {{ form.description }}
+                                        </div><span style="color: red">*</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label for="image_uploads">Add images(if any):</label>
+                                            <input id="image_uploads" type="file" name="images" multiple>
+                                        </div>
+                                        <div id="preview"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label class="terms">
+                                                {{ form.terms }}
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            
+
+                                            <label for="{{ form.terms.id_for_label }}" style="padding-left: 2em;"> I have read and agree to the
+                                                <a href="static/Terms_and_Conditions.pdf">Term and Condition and Privacy Policy </a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row enquirySubmit">
+                                    <div class="col-sm-12 mt-20">
+                                        <button type="submit" class="btn softo-solid-btn pull-right" id="btnContactUs">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row disabledEnquirySubmit">
+                                    <div class="col-sm-12 mt-20">
+                                        <a  class="btn btn-gray pull-right " id="btnGrayContactUs" style="cursor: not-allowed;">
+                                            Submit
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--contact us section end-->
+        
+        <script>
+            let divSend = document.querySelector('.enquirySubmit');
+            let divdis = document.querySelector('.disabledEnquirySubmit');
+            let box = document.querySelector('#id_terms');
+            function checking() {
+                // body...
+                if (box.checked) {
+                    divSend.style.display = "block";
+                    divdis.style.display = "none";
+                }
+                else {
+                    divSend.style.display = "none";
+                    divdis.style.display = "block";
+                }
+            }
+            //box.addEventListener('change', checking);
+            document.addEventListener('DOMContentLoaded', function () {
+                box.addEventListener('change', checking);
+            });
+
+        </script>
+
+{% endblock %}

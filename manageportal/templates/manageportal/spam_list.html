@@ -1,0 +1,71 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Spammed Messages {% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Spammed List</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="{% url 'spam-list' %}"> Spam</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12">
+        <div class="card tm-shadow-btm">
+            <div class="card-body p-0">
+                <div class="table-responsive flex-fill">
+                    {% if list %}
+                    <table class="table table-hover m-0">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for msg_list in list %}
+                        <tr>
+                            <td>{{ msg_list.id }}</td>
+                            <td>{{ msg_list.fullname }}</td>
+                            <td>{{ msg_list.uploaded_at }}</td>
+                            <td>{{ msg_list.status }}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Action">
+                                    <a href="{% url 'message-unspam' msg_list.id %}" class="btn btn-success">
+                                        <i class="icon ion-ios-done-all"></i>
+                                        Unmark as Spam
+                                    </a>
+
+                                </div>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Action">
+                                    <a href="{% url 'message-delete' msg_list.id %}" class="btn btn-danger">
+                                        <i class="icon ion-ios-done-all"></i>
+                                        Delete
+                                    </a>
+
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="text-center">
+                        <h4 class="h3">No Spam Requests</h4>
+                    </div><!-- inner container -->
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

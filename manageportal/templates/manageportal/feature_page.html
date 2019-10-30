@@ -1,0 +1,53 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Features{% endblock %}
+
+
+{% block container %}
+<div class="w-100 w-80-l db bg-washed-green fr-l">
+    <section class="w-100 tc pv4 nowrap">
+        {% include 'manageportal/feature_nav.html' %}
+
+		<!-- ======= list all the features done -->
+		<div class="overflow-x-auto">
+			<h1>List of all features</h1>
+			{% if feat %}
+			<table>
+				<tr class="bb b--black-20">
+					<td>Event Name</td>
+					<td>Name</td>
+					<td>Image</td>
+					<td>Price</td>
+					<td>Shipping</td>
+					<td>VAT</td>
+					<td>Details</td>
+					<td>Start Date</td>
+					<td>End Date</td>
+					<td>Ongoing?</td>
+				</tr>
+                {% for feat_list in feat %}
+                <tr class="ba b--black-20">
+                	<td class="pv3">{{ feat_list.event_name }}</td>
+                	<td>{{ feat_list.name }}</td>
+                	<td>{{ feat_list.photo }}</td>
+                	<td>{{ feat_list.price }}</td>
+                	<td>{{ feat_list.shipping_cost }}</td>
+                	<td>{{ feat_list.vat }}</td>
+                	<td>{{ feat_list.details }}</td>
+                	<td>{{ feat_list.start_date }}</td>
+                	<td>{{ feat_list.end_date }}</td>
+                	<td>{{ feat_list.status }}</td>
+                	<td>
+                		<a class="bg-blue white link br2 shadow-1 ma2 pa2 grow" href="">Edit</a>
+                		<a class="bg-red white link br2 shadow-1 ma2 pa2 grow" href="">Delete</a>
+                	</td>
+                </tr>
+                {% endfor %}
+            </table>
+		{% else %}
+        	No Item
+        {% endif %}
+		</div>
+	</section>
+</div>
+{% endblock %}

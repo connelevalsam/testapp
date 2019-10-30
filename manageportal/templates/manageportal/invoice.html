@@ -1,0 +1,67 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Invoice Page{% endblock %}
+
+{% block container %}
+
+    <div class="row">
+        <div class="page-title mr-auto px-3 pt-2">
+            <h4 class="h3">Send invoice</h4>
+        </div>
+        <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+        <div class="col-12">
+            <div class="card tm-shadow-btm">
+                <div class="card-body p-0">
+                    <div class="table-responsive flex-fill">
+                        <table class="table table-hover m-0">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Amount paid</th>
+                                <th scope="col">Action</th>
+
+                            </tr>
+                            </thead>
+                            {% if tnx %}
+                                {% for tnx_list in tnx %}
+                                    <tbody>
+
+                                    <tr>
+                                        <th scope="row">{{ tnx_list.message_id }}</th>
+                                        <td>{{ tnx_list.message.fullname }}</td>
+                                        <td>{{ tnx_list.message.email }}</td>
+                                        <td>{{ tnx_list.cost }}</td>
+                                        <td>{{ tnx_list.money_paid }}</td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="Action">
+                                                <a href="{% url 'send_invoice' tnx_list.pk %}" class="btn btn-success">
+                                                    <i class="icon ion-ios-done-all"></i>
+                                                    Send invoice
+                                                </a>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                {% endfor %}
+                            {% else %}
+                                <h4 class="h3">No Transaction</h4>
+                            {% endif %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

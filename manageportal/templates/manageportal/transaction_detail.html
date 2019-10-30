@@ -1,0 +1,85 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | View Transaction{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Transaction Details</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'accepted-list' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12">
+        <div class="card tm-shadow-btm">
+            <div class="card-header d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
+                {% if photo %}
+                    {% for p in photo %}
+                        <img src="{{ p.url }}" width="400px" height="400px">
+                    {% endfor %}
+                {% else %}
+                    <h4 class="h3">No Image</h4>
+                {% endif %}
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive flex-fill">
+                    <table class="table table-hover m-0">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">UUID</th>
+                            <td>{{ id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Customer Name</th>
+                            <td>{{ name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Customer Phone</th>
+                            <td>0{{ phone }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Customer E-mail</th>
+                            <td>{{ mail }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Item Cost</th>
+                            <td>{{ cost }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Amount paid</th>
+                            <td>{{ moneyPaid }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Profit made</th>
+                            <td>{{ moneyMade }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Shipping</th>
+                            <td>{{ shipping }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">VAT</th>
+                            <td>{{ vat }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <td>{{ des }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <td>{{ date }}</td>
+                        </tr>
+                        </thead>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

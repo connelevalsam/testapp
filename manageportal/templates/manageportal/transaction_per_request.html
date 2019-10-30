@@ -1,0 +1,99 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Transaction Page{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Save Transaction</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+{% if message %}
+    <div class="{{ css }}" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{{message}}</strong>.
+    </div>
+{% endif %}
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12 col-lg-8">
+        <div class="card-column">
+            <div class="card tm-shadow-btm">
+                <div class="jombo">
+                    <div class="form-group form-row">
+                        <label for="name" class="col-12 col-sm-3 col-form-label">Full name: </label>
+                        <input type="text" name="name" id="name" value="{{ tn.fullname }}" readonly class="form-control col-9 col-sm-7">
+                    </div>
+                    <div class="form-group form-row">
+                        <label for="request" class="col-12 col-sm-3 col-form-label">Request: </label>
+                        <input type="textarea" name="request" id="request" value="{{ tn.description }}" readonly class="form-control col-9 col-sm-9">
+                    </div>
+                </div><!-- inner container -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <form action="" method="post" class="form-horizontal">
+                            {% csrf_token %}
+                            {% if tnxp %}
+                                <div class="form-group form-row">
+                                    <label for="itemCost" class="col-12 col-sm-3 col-form-label">Item Cost</label>
+                                    <input type="number" step="0.01" name="itemCost" id="itemCost" value="{{ tnxp.cost }}" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="amountPaid" class="col-12 col-sm-3 col-form-label">Amount Paid</label>
+                                    <input type="number" step="0.01" name="amountPaid" id="amountPaid" value="{{ tnxp.money_paid }}" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="amountMade" class="col-12 col-sm-3 col-form-label">Profit</label>
+                                    <input type="number" step="0.01" value="{{ tnxp.money_made }}" name="amountMade" id="amountMade" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="shippingCost" class="col-12 col-sm-3 col-form-label">Shipping</label>
+                                    <input type="number" step="0.01" name="shippingCost" id="shippingCost" value="{{ tnxp.shipping_cost }}" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="vat" class="col-12 col-sm-3 col-form-label">Vat</label>
+                                    <input type="number" step="0.01" value="{{ tnxp.vat }}" name="vat" id="vat" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                            {% else %}
+                                <div class="form-group form-row">
+                                    <label for="itemCost" class="col-12 col-sm-3 col-form-label">Item Cost</label>
+                                    <input type="number" step="0.01" name="itemCost" id="itemCost" placeholder="Enter cost of Item" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="amountPaid" class="col-12 col-sm-3 col-form-label">Amount Paid</label>
+                                    <input type="number" step="0.01" name="amountPaid" id="amountPaid" placeholder="Enter amount paid" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="amountMade" class="col-12 col-sm-3 col-form-label">Profit</label>
+                                    <input type="number" step="0.01" placeholder="Enter profit made" name="amountMade" id="amountMade" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="shippingCost" class="col-12 col-sm-3 col-form-label">Shipping</label>
+                                    <input type="number" step="0.01" name="shippingCost" id="shippingCost" placeholder="Enter shipping cost" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="vat" class="col-12 col-sm-3 col-form-label">Vat</label>
+                                    <input type="number" step="0.01" placeholder="Enter vat" name="vat" id="vat" required="" class="form-control col-12 col-sm-9">
+                                </div>
+                            {% endif %}
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary"><i class="icon ion-ios-add"></i>
+                                    Save</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

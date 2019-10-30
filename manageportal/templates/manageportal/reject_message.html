@@ -1,0 +1,61 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Message List{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Reject Request</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12 col-lg-8">
+        <div class="card-column">
+            <div class="card tm-shadow-btm">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <form action="" method="post" class="form-horizontal">
+                            {% csrf_token %}
+                            <div class="form-group form-row">
+                                <label for="name" class="col-12 col-sm-3 col-form-label">Requested by:</label>
+                                <input type="text" name="name" id="name" value="{{ my_name }}" class="form-control col-12 col-sm-9">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="mail" class="col-12 col-sm-3 col-form-label">E-mail</label>
+                                <input type="email"  value="{{ my_mail }}" name="mail" id="mail" class="form-control col-12 col-sm-9">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="reply" class="col-12 col-sm-3 col-form-label">Your reply</label>
+                                <textarea name="reply" id="reply" rows="10" cols="20" class="form-control col-12 col-sm-9">  Dear Customer,
+
+    We are sorry we are unable to process your order at this
+    time because your item is currently
+    unavailable.
+
+    We thank you for your custom and look forward to your
+    future patronage.
+
+    Kind regards,
+
+    SmartAlaba Team
+                                </textarea>
+                            </div>
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary"><i class="icon ion-ios-add"></i>
+                                    Send message</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

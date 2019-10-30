@@ -1,0 +1,38 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Coupons Page{% endblock %}
+
+{% block container %}
+<div class="w-100 w-80-l db bg-washed-green fr-l">
+    <section class="w-100 tc overflow-auto">
+    <h2>Coupons</h2>
+    <form action="" method="post">
+    	{% csrf_token %}
+    	{% if product %}
+			<div class="pv2">
+				<input type="text" name="code" value="{{ uuid }}" class="w-80">
+			</div>
+			<div class="pv2">
+				<select name="product_name" class="w-80">
+				    <option>Select product</option>
+				    {% for p in product %}
+				        <option value="{{ p.name }}">{{ p.name }}</option>
+				    {% endfor %}
+				</select>
+			</div>
+			<div class="pv2">
+				<input type="number" name="discount" placeholder="Enter discount for product" class="w-70"> %
+			</div>
+			<div class="pv2">
+				<input type="number" name="number_of_products" placeholder="Enter Number of products" class="w-80">
+			</div>
+			<input type="submit" value="Save" class="bn pa3 br2 bg-green white grow pointer w-80" />
+			</div>
+		{% else %}
+		    <h1>No event</h1>
+		{% endif %}
+    </form>
+    </section>
+</div>
+
+{% endblock %}

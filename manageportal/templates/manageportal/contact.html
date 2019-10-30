@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Smart Alaba | Contact Us{% endblock %}
+
+{% block homeheader %}
+
+{% endblock %}
+
+{% block header %}
+<div class="flex flex-column white items-center justify-center justify-between">
+	<div class="">
+		<h1 class="f1 fw4 mv2 pt2 lh-title">Modern &amp; Old parts</h1>
+	</div>
+	<div class="flex pv2 w-60-ns">
+		<p class="pa2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+	</div>
+</div>
+{% endblock %}
+
+{% block homecontainer %}
+
+{% endblock %}
+
+{% block container %}
+<section class="bg-washed-blue">
+	<div class="tc pv2 pv4-ns">
+		<div class="w-100 w-70-ns dib bg-white">
+			{% if message %}
+				<div class=" {{ css }} ">
+					<h1 class="white">{{message}}</h1>
+				</div>
+			{% endif %}
+			<h3>Fill the form.</h3>
+			<small>Give us details or pictures of what you want.</small>
+
+			<form action="" method="post"  enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form.non_field_errors }}
+				<div class="pv2">
+					{{ form.fullname }}
+				</div>
+				<div class="pv2">
+					{{ form.phone_number }}
+				</div>
+				<div class="pv2">
+					{{ form.address }}
+				</div>
+				<div class="pv2">
+					{{ form.email }}
+				</div>
+				<div class="pv2">
+					{{ form.description }}
+				</div>
+				<div class="pv2">
+				    <label for="image_uploads">Add images(if any):</label>
+					<input id="image_uploads" type="file" name="images" multiple>
+					<div class="preview w-auto dib">
+						<p>No files currently selected</p>
+					</div>
+				</div>
+				
+				<!-- <div class="pv2">
+				    {{ form.fullname.errors }}
+					<input type="text" name="fullname" placeholder="Enter your full name" class="w-80">
+				</div>
+				 <div class="pv2">
+					<input type="number" name="phone_number" placeholder="Enter phone number" class="w-80">
+				</div>
+				<div class="pv2">
+					<input type="email" name="email" placeholder="Enter your e-mail address" class="w-80">
+				</div>
+				<div class="pv2">
+					<input type="text" name="address" placeholder="Enter Your home address" class="w-80">
+				</div>
+				<div class="pv2">
+					<textarea placeholder="Enter Description" name="description" class="w-80"></textarea>
+				</div>
+				<div class="pv2">
+					<label for="image_uploads">Add images <small>if any</small></label>
+					<input type="file" id="image_uploads" name="photo" accept=".jpg, .jpeg, .png" multiple>
+					<div class="preview w-auto dib">
+						<p>No files currently selected</p>
+					</div>
+				</div>  -->
+				<div class="pv2">
+					<input type="submit" value="Upload" class="bn pa3 br2 bg-green white grow pointer w-50" />
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Create Invoice{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Invoice</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'accepted-list' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+{% if message %}
+    <div class="{{ css }}" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{{message}}</strong>.
+    </div>
+{% endif %}
+
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12">
+        <div class="card tm-shadow-btm">
+            <div class="card-header d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
+                {% if photo %}
+                    <h4 class="h3">Item Image:</h4>
+                    <img src="{{ photo.url }}" width="400px">
+                {% else %}
+                    <h4 class="h3">No Image</h4>
+                {% endif %}
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive flex-fill">
+                    <table class="table table-hover m-0">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">UUID</th>
+                            <td>{{ id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Customer Name</th>
+                            <td>{{ name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Customer Phone</th>
+                            <td>0{{ phone }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Customer E-mail</th>
+                            <td>{{ mail }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Item Cost</th>
+                            <td>{{ cost }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Amount paid</th>
+                            <td>{{ moneyPaid }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Profit made</th>
+                            <td>{{ moneyMade }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Shipping</th>
+                            <td>{{ shipping }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">VAT</th>
+                            <td>{{ vat }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <td>{{ des }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <td>{{ date }}</td>
+                        </tr>
+                        </thead>
+
+                    </table>
+                    <div class="card tm-shadow-btm" style="margin-top: .87em">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" style="background-color: #e9ecef">
+                                <form action="" method="post" class="form-horizontal">
+                                    {% csrf_token %}
+                                    <div class="form-group form-row">
+                                        <label for="ddate" class="col-12 col-sm-3 col-form-label">Due Date:</label>
+                                        <input type="date" name="ddate" id="ddate" class="form-control col-10 col-sm-6" required>
+                                    </div>
+                                    <div class="form-group text-right">
+                                        <button type="submit" class="btn btn-primary"><i class="icon ion-ios-send"></i>
+                                            Send</button>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

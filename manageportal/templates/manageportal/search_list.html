@@ -1,0 +1,50 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Search List{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Search Result</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12">
+        <div class="card tm-shadow-btm">
+            <div class="card-body p-0">
+                <div class="table-responsive flex-fill">
+                    Search!
+                    {% if search %}
+                        search by UID/ID/Name/E-mail
+                        {% for search_list in search %}
+
+                            <div class="p-3 m-2">
+                                <span class="px3 border rounded">{{ search_list.message_id }}</span>
+                                <span class="px3 border rounded">{{ search_list.message.fullname }}</span>
+                                <span class="px3 border rounded">{{ search_list.message.email }}</span>
+                                <span class="px3 border rounded">{{ search_list.uid }}</span>
+                                <!-- {{ search_list.money_made }} -->
+
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Action">
+                                    <a href="{% url 'transaction-detail' search_list.pk %}" class="btn btn-success">
+                                        <i class="icon ion-ios-done-all"></i>
+                                        expand
+                                    </a>
+
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <h4 class="h3">No Results</h4>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

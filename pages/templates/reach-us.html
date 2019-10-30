@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Smart Alaba - Contact us{% endblock %}
+
+{% block container %}
+    <!--contact us section start-->
+    <section id="hero" class="section-lg" style="background: url('{% static 'img/hero-bg-1.jfif' %}')no-repeat center center / cover; padding-bottom: 0px;">
+        <section id="contact_us" class="contact-us ptb-90 bg-white">
+            <div class="contact-us-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <!--<div class="section-heading">
+                                <h3>Contact us</h3>
+                                <p>It's very easy to get in touch with us. Just use the contact form or pay us a
+                                    visit for a coffee at the office.</p>
+                            </div>-->
+                            <div class="footer-address">
+                                <h6>Find us</h6>
+                                <p>30 Wetheral Road, Owerri Imo State</p>
+                                <h6>General enquiries</h6>
+                                <ul>
+                                    <li><i class="fa fa-phone"></i> <span>Phone: +234 808 568 0969</span></li>
+                                    <li><i class="fa fa-envelope-o"></i> <span>Email : <a href="mailto: info@smartalaba.com"> info@smartalaba.com</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            {% if message %}
+                                <div class="{{ css }}" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>{{ flag }}</strong> {{ message }}
+                                </div>
+                            {% endif %}
+                            <form action="#contact_us" method="post" class="contact-us-form" novalidate="novalidate">
+                                {% csrf_token %}
+                                <h6>E-mail Us</h6>
+                                {{ form.non_field_errors }}
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            {{ form.fullname }}*
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            {{ form.email }}*
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            {{ form.phone_number }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            {{ form.message }}*
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 mt-20">
+                                        <button type="submit" class="btn softo-solid-btn pull-right" id="btnContactUs">
+                                            Send
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--contact us section end-->
+{% endblock %}

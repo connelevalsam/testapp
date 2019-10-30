@@ -1,0 +1,83 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | View Request{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Details</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'accepted-list' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12">
+        <div class="card tm-shadow-btm">
+            <div class="card-header d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
+                {% if message.image %}
+                    <img src="{{ message.image.url }}" width="400px">
+                {% else %}
+                    <h4 class="h3">No Image</h4>
+                {% endif %}
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive flex-fill">
+                    <table class="table table-hover m-0">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Received On</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            <td>{{ message.fullname }}</td>
+                            <td>0{{ message.phone_number }}</td>
+                            <td>{{ message.email }}</td>
+                            <td>{{ message.address }}</td>
+                            <td>{{ message.description }}</td>
+                            <td>{{ message.uploaded_at }}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Action">
+                                    {% if message.status == "Rejected" %}
+                                        <a class="btn btn-success" href="{% url 'message-accept' message.id %}">
+                                            <i class="icon ion-ios-done-all"></i>
+                                            Accept Now
+                                        </a>
+                                    {% elif message.status == "Waiting" %}
+                                        <a class="btn btn-danger" href="{% url 'message-reject' message.id %}">
+                                            <i class="icon ion-ios-done-all"></i>
+                                            Reject
+                                        </a> &nbsp;
+                                        <a class="btn btn-success" href="{% url 'message-accept' message.id %}">
+                                            <i class="icon ion-ios-done-all"></i>
+                                            Accept
+                                        </a>
+                                    {% else %}
+
+                                    {% endif %}
+
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

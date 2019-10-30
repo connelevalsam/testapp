@@ -1,0 +1,99 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Message Reply{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Accept Request</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+{% if message %}
+    <div class="{{ css }}" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>{{message}}</strong>.
+    </div>
+{% endif %}
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12 col-lg-8">
+        <div class="card-column">
+            <div class="card tm-shadow-btm">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <form action="" method="post" class="form-horizontal">
+                            {% csrf_token %}
+                            <div class="form-group form-row">
+                                <label for="name" class="col-12 col-sm-3 col-form-label">Requested by:</label>
+                                <input type="text" name="name" id="name" value="{{ my_name }}" class="form-control col-12 col-sm-9">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="mail" class="col-12 col-sm-3 col-form-label">E-mail</label>
+                                <input type="email"  value="{{ my_mail }}" name="mail" id="mail" class="form-control col-12 col-sm-9">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="address" class="col-12 col-sm-3 col-form-label">Address</label>
+                                <input type="text"  value="{{ my_address }}" name="address" id="address" class="form-control col-12 col-sm-9">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="reply" class="col-12 col-sm-3 col-form-label">Your reply</label>
+                                <textarea name="reply" id="reply" rows="10" cols="20" class="form-control col-12 col-sm-9">  Dear Customer,
+
+    Please find attached the quote and payment instructions for your order enquiry. 
+    
+    Your quote remains  valid for the next  30 days from the receipt of this email. If payment is not received after  30 days from the receipt of this email, a new enquiry will be required to process your order.
+    
+    Thank you for your custom.
+    
+    Kind regards,
+    
+    SmartAlaba Team
+                                </textarea>
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="item_name" class="col-12 col-sm-3 col-form-label">Item Name:</label>
+                                <input type="text" name="item_name" id="item_name" class="form-control col-12 col-sm-9" required="">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="qty" class="col-12 col-sm-3 col-form-label">Quantity:</label>
+                                <input type="number" name="qty" id="qty" class="form-control col-12 col-sm-9" required="">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="unit_price" class="col-12 col-sm-3 col-form-label">Unit Price:</label>
+                                <input type="number" name="unit_price" id="unit_price" class="form-control col-12 col-sm-9" required="">
+                            </div>
+                            <div class="addItems"></div>
+                            <div class="form-group form-row">
+                                <div class="container-fluid">
+                                    <input type="button" id="btnAdd" class="btn btn-info float-right" value="+" />
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="discount" class="col-12 col-sm-3 col-form-label">Discount:</label>
+                                <input type="number" name="discount" id="discount" class="form-control col-12 col-sm-9" value="0">
+                            </div>
+                            <div class="form-group form-row">
+                                <label for="due_date" class="col-12 col-sm-3 col-form-label">Due Date:</label>
+                                <input type="date" name="due_date" id="due_date" class="form-control col-12 col-sm-9" required="">
+                            </div>
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary"><i class="icon ion-ios-checkmark"></i>
+                                    Send message</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

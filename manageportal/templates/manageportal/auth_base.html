@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock %}</title>
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin/bootstrap.min.css' %}" />
+    <link href="{% static 'fonts/admin/ionicons/css/ionicons.min.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/admin/main.min.css' %}" />
+    <!--favicon icon-->
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png" sizes="16x16">
+</head>
+<body>
+<div class="wrapper tm-bg-img">
+    <!-- HEADER -->
+    <header class="tm-header position-relative tm-shadow-btm">
+      <nav class="navbar">
+        <a class="navbar-brand" href="{% url 'adminhome' %}">Smartalaba</a>
+      </nav>
+    </header>
+    {% block container %}
+
+    {% endblock %}
+  </div>
+</body>
+</html>

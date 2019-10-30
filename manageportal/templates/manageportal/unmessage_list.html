@@ -1,0 +1,61 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Message List{% endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="page-title mr-auto px-3 pt-2">
+        <h4 class="h3">Request List</h4>
+    </div>
+    <nav aria-label="breadcrumb" class="ml-auto tm-breads">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'adminhome' %}">Home</a></li>
+        </ol>
+    </nav>
+</div>
+<div class="row pt-1 pb-3 pt-sm-2 pb-sm-4">
+    <div class="col-12">
+        <div class="card tm-shadow-btm">
+            <div class="card-body p-0">
+                <div class="table-responsive flex-fill">
+                    {% if message_list %}
+                    <table class="table table-hover m-0">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for msg in message_list %}
+                        <tr>
+                            <td>{{ msg.id }}</td>
+                            <td>{{ msg.fullname }}</td>
+                            <td>{{ msg.status }}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Action">
+                                    <a href="{{ msg.get_absolute_url }}" class="btn btn-success">
+                                        <i class="icon ion-ios-done-all"></i>
+                                        View more
+                                    </a>
+
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="text-center">
+                        <h4 class="h3">No Requests</h4>
+                    </div><!-- inner container -->
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

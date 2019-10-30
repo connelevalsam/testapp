@@ -1,0 +1,63 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Features{% endblock %}
+
+
+{% block container %}
+<div class="w-100 w-80-l db bg-washed-green fr-l">
+    <section class="w-100 tc pv4">
+        {% include 'manageportal/feature_nav.html' %}
+		
+		<!-- ======= list all the features done -->
+		<div>
+		    {% if message %}
+				<div class=" {{ css }} ">
+					<h1 class="white">{{message}}</h1>
+				</div>
+			{% endif %}
+			<h1>List of all features</h1>
+			<div>
+				<form action="{% url 'feature_save' %}" method="post" enctype="multipart/form-data" class="w-70-ns dib">
+					{% csrf_token %}
+			        <table>
+			        	<tr>
+			        		<td>Event Name</td>
+			        		<td>Choice</td>
+			        	</tr>
+			        	
+			        	<tr>
+			        	    
+			        		<td>
+			        			<select name="events">
+				        				<option selected="selected" disabled>Choose event</option>
+				        				{% if feat_list %}
+			                                {% for feat in feat_list %}
+				        				        <option value="{{ feat.event_name }}">{{ feat.event_name }}</option>
+						        			{% endfor %}
+							            {% endif %}
+			        			</select>
+			        		</td>
+			        		<td>
+			        			<select name="status">
+									<option selected="selected" disabled>Choose option</option>
+									<option value="start">Start</option>
+									<option value="stop">Stop</option>
+								</select>
+			        		</td>
+					            
+			        	</tr>
+			        	    
+			        	<tr>
+			        		<td colspan="3">
+			        			<div class="pv2">
+									<input type="submit" value="Save" class="bn pa3 br2 bg-green white grow pointer w-80" />
+								</div>
+			        		</td>
+			        	</tr>
+			        </table>
+				</form>
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}

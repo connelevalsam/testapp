@@ -1,0 +1,65 @@
+{% extends 'manageportal/adminbase.html' %}
+
+{% block title %}Admin | Features{% endblock %}
+
+
+{% block container %}
+<div class="w-100 w-80-l db bg-washed-green fr-l">
+    <section class="w-100 tc pv4">
+        {% include 'manageportal/feature_nav.html' %}
+		
+		<!-- ======= list all the features done -->
+		<div>
+		    {% if message %}
+				<div class=" {{ css }} ">
+					<h1 class="white">{{message}}</h1>
+				</div>
+			{% endif %}
+			<h1>Create new features</h1>
+			<div>
+				<form action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="pv2">
+						<input type="text" name="eventName" placeholder="Enter event name" required="" class="w-80">
+					</div>
+					<div class="pv2">
+						<input type="text" name="name" placeholder="Enter product name" required="" class="w-80">
+					</div>
+					<div class="pv2">
+						<input type="number" name="price" placeholder="Enter price of product" required="" class="w-80">
+					</div>
+					<div class="pv2">
+						<input type="number" name="shippingCost" placeholder="Enter shipping cost" required="" class="w-80">
+					</div>
+					<div class="pv2">
+						<input type="number" name="vat" placeholder="Enter VAT (if any)" required="" class="w-80">
+					</div>
+					<div class="pv2">
+						<input type="number" name="quantity" placeholder="Enter quantity of product" required="" class="w-80">
+					</div>
+					<div class="pv2">
+						<label for="id_image_uploads">Choose images</label>
+						<input type="file" id="id_image_uploads" name="photo" accept=".jpg, .jpeg, .png" multiple required="">
+						<div class="preview w-auto dib">
+							<p>No files currently selected</p>
+						</div>
+					</div>
+					
+					<div class="pv2">
+						<textarea placeholder="Enter Details" name="details" required="" class="w-80"></textarea>
+					</div>
+					<div class="pv2">
+						Start date: <input type="date" name="startdate" required="">
+					</div>
+					<div class="pv2">
+						End date: <input type="date" name="endate" required="">
+					</div>
+					<div class="pv2">
+						<input type="submit" value="Save" class="bn pa3 br2 bg-green white grow pointer w-80" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}
