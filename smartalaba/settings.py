@@ -168,7 +168,5 @@ SENDGRID_ECHO_TO_STDOUT=True
 
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 
-django_heroku.settings(locals())
-
 
 # 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 - kunba
