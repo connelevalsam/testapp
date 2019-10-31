@@ -136,20 +136,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/home/smargkds/smartalaba/pages/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/managesmartmarket/'
 
 # sendgrid mail settings
-SENDGRID_API_KEY = 3Connection(os.environ['SMART_MAIL_KEY'])
+SENDGRID_API_KEY = S3Connection(os.environ['SMART_MAIL_KEY'])
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 3Connection(os.environ['SMART_HOST'])
-EMAIL_HOST_PASSWORD = 3Connection(os.environ['SMART_HOST_PASSWORD'])
+EMAIL_HOST_USER = S3Connection(os.environ['SMART_HOST'])
+EMAIL_HOST_PASSWORD = S3Connection(os.environ['SMART_HOST_PASSWORD'])
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # Toggle sandbox mode (when running in DEBUG mode)
