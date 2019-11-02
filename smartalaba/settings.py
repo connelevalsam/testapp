@@ -19,10 +19,6 @@ from boto.s3.connection import S3Connection
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# import Heroku
-django_heroku.settings(locals())
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -43,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'pages',
@@ -167,6 +165,9 @@ SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 SENDGRID_ECHO_TO_STDOUT=True
 
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+
+# import Heroku
+django_heroku.settings(locals())
 
 
 # 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 - kunba
