@@ -8,6 +8,7 @@ django-sendgrid-v5==0.8.0
 docutils==0.15.2
 fpdf==1.7.2
 future==0.18.0
+gunicorn==19.9.0
 jmespath==0.9.4
 mysqlclient==1.4.4
 Pillow==6.1.0
