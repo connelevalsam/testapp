@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'v74e_(z-%7$*z^trg#7#7g=2*x!e#r9i&8xms)c)pl$ydx=*du'
-SECRET_KEY = S3Connection(os.environ['SMART_KEY'])
+SECRET_KEY = S3Connection('SMART_KEY', os.environ['SMART_KEY'])
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -152,10 +152,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = '/managesmartmarket/'
 
 # sendgrid mail settings
-SENDGRID_API_KEY = S3Connection(os.environ['SMART_MAIL_KEY'])
+SENDGRID_API_KEY = S3Connection('SMART_MAIL_KEY', os.environ['SMART_MAIL_KEY'])
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = S3Connection(os.environ['SMART_HOST'])
-EMAIL_HOST_PASSWORD = S3Connection(os.environ['SMART_HOST_PASSWORD'])
+EMAIL_HOST_USER = S3Connection('SMART_HOST', os.environ['SMART_HOST'])
+EMAIL_HOST_PASSWORD = S3Connection('SMART_HOST_PASSWORD', os.environ['SMART_HOST_PASSWORD'])
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # Toggle sandbox mode (when running in DEBUG mode)
